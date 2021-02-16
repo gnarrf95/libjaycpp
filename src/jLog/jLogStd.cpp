@@ -1,7 +1,20 @@
+/**
+ * @file jLog.cpp
+ * @author Manuel Nadji (https://github.com/gnarrf95)
+ * 
+ * @brief Code for functionality of jLogStd.
+ * 
+ * @date 2021-02-16
+ * @copyright Copyright (c) 2020 by Manuel Nadji
+ * 
+ */
+
 #include <jLogStd.hpp>
 
 #include <iostream>
 
+//----------------------------------------------------------------------------------------------------------------------
+//
 static const char *LOGSTRING_DEBUG = "=DBG=";
 static const char *LOGSTRING_INFO = "=INF=";
 static const char *LOGSTRING_WARNING = "=WRN=";
@@ -11,14 +24,20 @@ static const char *LOGSTRING_FATAL = "**FATAL**";
 
 namespace jCPP
 {
+    //------------------------------------------------------------------------------------------------------------------
+    //
     jLogStd::jLogStd()
     {
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     jLogStd::~jLogStd()
     {
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     void jLogStd::log(logType_t log_type, const char *msg)
     {
         std::cout << "[ ";
@@ -71,6 +90,8 @@ namespace jCPP
         std::cout << " ] " << msg << std::endl;
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     void jLogStd::log_sc(logType_t log_type, const char *file, const char *function, const int line, const char *msg)
     {
         std::cout << "[ ";

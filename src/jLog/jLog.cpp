@@ -1,3 +1,14 @@
+/**
+ * @file jLog.cpp
+ * @author Manuel Nadji (https://github.com/gnarrf95)
+ * 
+ * @brief Code for global functionality of jLog.
+ * 
+ * @date 2021-02-16
+ * @copyright Copyright (c) 2020 by Manuel Nadji
+ * 
+ */
+
 #include <jLog.hpp>
 
 #include <cstdio>
@@ -6,12 +17,18 @@
 
 namespace jCPP
 {
+    //------------------------------------------------------------------------------------------------------------------
+    //
     jLog *jLog::global_instance = nullptr;
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     jLog::~jLog()
     {
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     jLog *jLog::init_GlobalLogger(jLog *logger_instance)
     {
         if(jLog::global_instance)
@@ -23,11 +40,15 @@ namespace jCPP
         return logger_instance;
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     jLog *jLog::get_GlobalLogger()
     {
         return jLog::global_instance;
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     void jLog::destroy_GlobalLogger()
     {
         if(jLog::global_instance)
@@ -37,6 +58,8 @@ namespace jCPP
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     void jLog::log_Global(logType_t log_type, const char *fmt, ...)
     {
         if(jLog::global_instance == nullptr)
@@ -54,6 +77,8 @@ namespace jCPP
         jLog::global_instance->log(log_type, buffer);
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    //
     void jLog::log_Global_sc(logType_t log_type, const char *file, const char *function, const int line, const char *fmt, ...)
     {
         if(jLog::global_instance == nullptr)
